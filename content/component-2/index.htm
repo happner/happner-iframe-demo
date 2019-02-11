@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script>
+      function initialize(happnClient){
+        console.log('doing init 2:::', happnClient);
+        happnClient.event['component-2'].on('component2-event', function(data){
+          document.getElementById('event-value').value = data.value;
+        }, function(e){
+            console.log('did init 2:::');
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <input id="event-value"></input>
+  </body>
+</html>

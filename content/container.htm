@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1">
+        <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+        <script src=/api/client></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </head>
+    <script>
+      $(document).ready(function() {
+        var client = new MeshClient();
+        client.login(function(e) {
+          if (e) return console.log('oops connection broke...');
+          document.getElementById('component-1-frame').contentWindow.initialize(client);
+          document.getElementById('component-2-frame').contentWindow.initialize(client);
+        });
+      });
+    </script>
+    <body class="vanilla">
+      <div class="card">
+        <header>
+            <h1>Test Iframes</h1>
+        </header>
+        <hr />
+        <section>
+          <h1>Component 1</h1>
+          <iframe id="component-1-frame" src="/component-1/ui"></iframe>
+        </section>
+        <section>
+          <h1>Component 2</h1>
+          <iframe id="component-2-frame"  src="/component-2/ui"></iframe>
+        </section>
+        <hr />
+      </div>
+    </body>
+</html>
